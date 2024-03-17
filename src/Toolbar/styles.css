@@ -1,0 +1,27 @@
+:host(:not([hidden])) {
+  display: block;
+}
+
+div {
+  display: flex;
+  gap: calc(var(--ui-spacing-unit) * 2);
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: calc(var(--ui-spacing-unit) * 2);
+  width:100%;
+  box-sizing:border-box;
+}
+
+::slotted(:not(ui-toolbox):not(ui-separator))::before {
+  display: none;
+}
+
+::slotted(ui-separator) {
+  display: block;
+  width: 1px;
+  height: var(--ui-padding);
+  background: var(--ui-color-separator);
+  align-self: center;
+  margin: auto var(--ui-spacing-unit);
+}

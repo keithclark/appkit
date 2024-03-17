@@ -1,0 +1,9 @@
+:host(:not([hidden])) {
+  display: inline-block;
+  width: 24px;
+}
+svg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+}

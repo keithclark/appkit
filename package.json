@@ -1,0 +1,17 @@
+{
+  "name": "@keithclark/app-kit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/bundle.min.js",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c"
+  },
+  "author": "Keith Clark",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup-plugin-import-css": "^3.5.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4"
+  }
+}

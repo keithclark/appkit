@@ -1,0 +1,7 @@
+:host(:not([hidden])) {
+  display: inline-flex;
+}
+div {
+  display: flex;
+  gap: calc(var(--ui-spacing-unit) * 2);
+}

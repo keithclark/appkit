@@ -1,0 +1,57 @@
+
+:host(:not([hidden])) {
+  --secondary-size: 20em;
+  --direction: row;
+  --collapse-behavior: auto;
+  display: block;
+  overflow:hidden
+}
+
+.splitView, .splitView__pane {
+  display: flex;
+  flex-direction: var(--direction);
+  overflow: hidden;
+}
+
+.splitView {
+  height: 100%;
+  width: 100%;
+  --primary-flex: 1 1 calc(100% - var(--secondary-size));
+  --secondary-flex: 0 0 var(--secondary-size);
+}
+
+.splitView__pane  {
+  min-width: 0;
+  min-height: 0;
+}
+
+#secondary {
+  transition-timing-function: ease-in-out;
+}
+
+#primary, #primary > div {
+  flex: var(--primary-flex)
+}
+
+#secondary {
+  flex: var(--secondary-flex);
+}
+
+#secondary > div {
+  flex: var(--secondary-flex);
+}
+
+.splitView.collapse #secondary {
+  flex-basis: 0;
+}
+
+.wrap {
+  display: grid;
+  overflow: auto;
+}
+
+@media not (prefers-reduced-motion) {
+  .animate {
+    transition: var(--ui-transion-duration) flex-basis;
+  }
+}

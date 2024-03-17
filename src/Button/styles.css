@@ -1,0 +1,45 @@
+:host(:not([hidden])) {
+  --ui-icon-visibility: 1;
+  --ui-text-visibility: 1;
+  display: inline-flex;
+  background: transparent;
+  border: 2px solid var(--ui-color-accent);
+  color: var(--ui-color-accent);
+  height: calc(var(--ui-spacing) - 4px);
+  border-radius: var(--ui-radius);
+}
+
+:host(:hover) {
+  background-color: var(--ui-color-accent);
+  color: var(--ui-color-accent-contrast);
+}
+
+button {
+  --show-text: min(var(--ui-text-visibility, 1), 1);
+  --show-icon: min(var(--ui-icon-visibility, 1) * var(--has-icon, 1), 1);
+  --font-size: calc(var(--show-text) * 1rem );
+  --icon-size: calc(var(--has-icon) * var(--show-icon) * var(--ui-padding));
+  --gap-size: calc(var(--show-text) * var(--show-icon) * var(--ui-spacing-unit));
+  display: flex;
+  align-items: center;
+  gap: var(--gap-size);
+  font: inherit;
+  background: transparent;
+  border: none;
+  color: inherit;
+  margin: 0;
+  align-self: center;
+  padding: 0 var(--ui-spacing-unit);
+  height: inherit;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+ui-icon {
+  width: var(--icon-size);
+  height: var(--ui-padding);
+}
+
+span {
+  font-size: var(--font-size);
+}
