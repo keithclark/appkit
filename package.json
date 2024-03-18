@@ -2,7 +2,7 @@
   "name": "@keithclark/app-kit",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/bundle.min.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c"
