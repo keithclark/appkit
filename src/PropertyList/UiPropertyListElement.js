@@ -4,7 +4,7 @@ import stylesheet from './styles.css';
 
 
 
-export default class extends UiElement {
+export default class UiPropertyListElement extends UiElement {
 
   #labelElem;
 

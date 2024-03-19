@@ -28,7 +28,7 @@ var ICONS = {
   "closepaneright": "M300-640v320l160-160-160-160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm440-80h120v-560H640v560Zm-80 0v-560H200v560h360Zm80 0h120-120Z",
 };
 
-class IconElement extends UiElement {
+class UiIconElement extends UiElement {
 
   #name = '';
 
@@ -114,7 +114,7 @@ const x$5 = document.createElement('template');x$5.innerHTML = "<div class=\"spl
  *   </div>
  * </ui-splitview>
  */
-class SplitViewElement extends UiElement {
+class UiSplitViewElement extends UiElement {
 
   /** @type {HTMLDivElement} */
   #rootElem;
@@ -226,14 +226,14 @@ const sheet$4 = new CSSStyleSheet();sheet$4.replaceSync(":host(:not([hidden])){-
 const x$4 = document.createElement('template');x$4.innerHTML = "<button> <ui-icon></ui-icon> <span><slot></slot></span> </button> ";
 
 /**
- * Property | Description 
- * -|-
- * `--ui-text-visibility` | `1` to show the text. `0` to hide it.
- * `--ui-icon-visibility` | `1` to show the icon. `0` to hide it.
+ * Property | Inherts | Description 
+ * -|-|-
+ * `--ui-text-visibility` | No | `1` to show the text. `0` to hide it.
+ * `--ui-icon-visibility` | No | `1` to show the icon. `0` to hide it.
  */
-class UiButton extends UiElement {
+class UiButtonElement extends UiElement {
 
-  /** @type {IconElement} */
+  /** @type {UiIconElement} */
   #iconElem;
 
   /** @type {HTMLButtonElement} */
@@ -282,7 +282,7 @@ const x$3 = document.createElement('template');x$3.innerHTML = "<div><slot></slo
 
 const sheet$3 = new CSSStyleSheet();sheet$3.replaceSync(":host(:not([hidden])){display:block;}div{display:flex;gap:calc(var(--ui-spacing-unit) * 2);justify-content:space-between;align-items:center;flex-wrap:wrap;padding:calc(var(--ui-spacing-unit) * 2);width:100%;box-sizing:border-box;}::slotted(:not(ui-toolbox):not(ui-separator))::before{display:none;}::slotted(ui-separator){display:block;width:1px;height:var(--ui-padding);background:var(--ui-color-separator);align-self:center;margin:auto var(--ui-spacing-unit);}");
 
-class ToolbarElement extends UiElement {
+class UiToolbarElement extends UiElement {
 
   constructor() {
     super(x$3, sheet$3);
@@ -294,7 +294,7 @@ const x$2 = document.createElement('template');x$2.innerHTML = "<div><slot></slo
 
 const sheet$2 = new CSSStyleSheet();sheet$2.replaceSync(":host(:not([hidden])){display:inline-flex;}div{display:flex;gap:calc(var(--ui-spacing-unit) * 2);}");
 
-class ToolboxElement extends UiElement {
+class UiToolboxElement extends UiElement {
 
   constructor() {
     super(x$2, sheet$2);
@@ -302,7 +302,7 @@ class ToolboxElement extends UiElement {
 
 }
 
-class SeparatorElement extends UiElement {
+class UiSeparatorElement extends UiElement {
 
 }
 
@@ -310,7 +310,7 @@ const x$1 = document.createElement('template');x$1.innerHTML = "<label><span></s
 
 const sheet$1 = new CSSStyleSheet();sheet$1.replaceSync(":host(:not([hidden])){display:inline-grid;grid-template-columns:subgrid;grid-column:1 / span 2;gap:calc(var(--ui-spacing-unit) * 2);}label{align-items:baseline;display:grid;grid-template-columns:inherit;grid-column:inherit;white-space:break-spaces;}span{color:var(--ui-color-base-muted);}");
 
-class PropertyElement extends UiElement {
+class UiPropertyElement extends UiElement {
 
   #labelElem;
 
@@ -345,7 +345,7 @@ const x = document.createElement('template');x.innerHTML = "<div><slot></slot></
 
 const sheet = new CSSStyleSheet();sheet.replaceSync(":host(:not([hidden])){display:block;}::slotted(:not(ui-property):not(ui-separator)){display:none;}::slotted(ui-separator){border-top:1px solid var(--ui-color-separator);margin-top:calc(var(--spacing-inner) - .5px);margin-bottom:calc(var(--spacing-inner) - .5px);grid-column:1 / span 2;}div{display:grid;grid-template-columns:1fr 1fr;gap:var(--ui-spacing-unit);}");
 
-class PropertyListElement extends UiElement {
+class UiPropertyListElement extends UiElement {
 
   #labelElem;
 
@@ -376,13 +376,13 @@ class PropertyListElement extends UiElement {
 
 }
 
-customElements.define('ui-icon', IconElement);
-customElements.define('ui-splitview', SplitViewElement);
-customElements.define('ui-button', UiButton);
-customElements.define('ui-toolbar', ToolbarElement);
-customElements.define('ui-toolbox', ToolboxElement);
-customElements.define('ui-separator', SeparatorElement);
-customElements.define('ui-property', PropertyElement);
-customElements.define('ui-propertylist', PropertyListElement);
+customElements.define('ui-icon', UiIconElement);
+customElements.define('ui-splitview', UiSplitViewElement);
+customElements.define('ui-button', UiButtonElement);
+customElements.define('ui-toolbar', UiToolbarElement);
+customElements.define('ui-toolbox', UiToolboxElement);
+customElements.define('ui-separator', UiSeparatorElement);
+customElements.define('ui-property', UiPropertyElement);
+customElements.define('ui-propertylist', UiPropertyListElement);
 
-export { UiButton as ButtonElement, IconElement, PropertyElement, PropertyListElement, SeparatorElement, SplitViewElement, ToolbarElement, ToolboxElement };
+export { UiButtonElement, UiIconElement, UiPropertyElement, UiPropertyListElement, UiSeparatorElement, UiSplitViewElement, UiToolbarElement, UiToolboxElement };

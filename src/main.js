@@ -1,28 +1,28 @@
-import IconElement from './Icon/IconElement.js';
-import SplitViewElement from './SplitView/SplitViewElement.js';
-import ButtonElement from './Button/ButtonElement.js';
-import ToolbarElement from './Toolbar/ToolbarElement.js';
-import ToolboxElement from './Toolbox/ToolboxElement.js';
-import SeparatorElement from './Separator/SeparatorElement.js';
-import PropertyElement from './Property/PropertyElement.js';
-import PropertyListElement from './PropertyList/PropertyListElement.js';
+import UiIconElement from './Icon/UiIconElement.js';
+import UiSplitViewElement from './SplitView/UiSplitViewElement.js';
+import UiButtonElement from './Button/UiButtonElement.js';
+import UiToolbarElement from './Toolbar/UiToolbarElement.js';
+import UiToolboxElement from './Toolbox/UiToolboxElement.js';
+import UiSeparatorElement from './Separator/UiSeparatorElement.js';
+import UiPropertyElement from './Property/UiPropertyElement.js';
+import UiPropertyListElement from './PropertyList/UiPropertyListElement.js';
 
-customElements.define('ui-icon', IconElement);
-customElements.define('ui-splitview', SplitViewElement);
-customElements.define('ui-button', ButtonElement);
-customElements.define('ui-toolbar', ToolbarElement);
-customElements.define('ui-toolbox', ToolboxElement);
-customElements.define('ui-separator', SeparatorElement);
-customElements.define('ui-property', PropertyElement);
-customElements.define('ui-propertylist', PropertyListElement);
+customElements.define('ui-icon', UiIconElement);
+customElements.define('ui-splitview', UiSplitViewElement);
+customElements.define('ui-button', UiButtonElement);
+customElements.define('ui-toolbar', UiToolbarElement);
+customElements.define('ui-toolbox', UiToolboxElement);
+customElements.define('ui-separator', UiSeparatorElement);
+customElements.define('ui-property', UiPropertyElement);
+customElements.define('ui-propertylist', UiPropertyListElement);
 
 export {
-  IconElement,
-  SplitViewElement,
-  ButtonElement,
-  ToolbarElement,
-  ToolboxElement,
-  SeparatorElement,
-  PropertyElement,
-  PropertyListElement
+  UiIconElement,
+  UiSplitViewElement,
+  UiButtonElement,
+  UiToolbarElement,
+  UiToolboxElement,
+  UiSeparatorElement,
+  UiPropertyElement,
+  UiPropertyListElement
 };

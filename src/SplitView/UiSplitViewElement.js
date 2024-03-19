@@ -34,7 +34,7 @@ import template from './template.html';
  *   </div>
  * </ui-splitview>
  */
-export default class extends UiElement {
+export default class UiSplitViewElement extends UiElement {
 
   /** @type {HTMLDivElement} */
   #rootElem;

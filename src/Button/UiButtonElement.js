@@ -1,17 +1,17 @@
 import UiElement from '../Element/UiElement.js';
-import IconElement from '../Icon/IconElement.js';
+import UiIconElement from '../Icon/UiIconElement.js';
 import stylesheet from './styles.css';
 import template from './template.html';
 
 /**
- * Property | Description 
- * -|-
- * `--ui-text-visibility` | `1` to show the text. `0` to hide it.
- * `--ui-icon-visibility` | `1` to show the icon. `0` to hide it.
+ * Property | Inherts | Description 
+ * -|-|-
+ * `--ui-text-visibility` | No | `1` to show the text. `0` to hide it.
+ * `--ui-icon-visibility` | No | `1` to show the icon. `0` to hide it.
  */
-export default class UiButton extends UiElement {
+export default class UiButtonElement extends UiElement {
 
-  /** @type {IconElement} */
+  /** @type {UiIconElement} */
   #iconElem;
 
   /** @type {HTMLButtonElement} */

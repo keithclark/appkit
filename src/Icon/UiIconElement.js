@@ -3,7 +3,7 @@ import CSS from './styles.css';
 import HTML from './template.html';
 import ICONS from './icons.js';
 
-export default class extends UiElement {
+export default class UiIconElement extends UiElement {
 
   #name = '';
 

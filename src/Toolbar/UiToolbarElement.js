@@ -2,7 +2,7 @@ import UiElement from '../Element/UiElement.js';
 import template from './template.html';
 import stylesheet from './styles.css';
 
-export default class extends UiElement {
+export default class UiToolbarElement extends UiElement {
 
   constructor() {
     super(template, stylesheet);
