@@ -1,7 +1,3 @@
-import globalStyles from './styles.css';
-
-document.adoptedStyleSheets.push(globalStyles)
-
 export default class UiElement extends HTMLElement {
 
   constructor(template, stylesheet) {
