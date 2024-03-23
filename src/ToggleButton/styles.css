@@ -1,0 +1,4 @@
+:host([pressed]) {
+  background: var(--ui-color-accent);
+  color: var(--ui-color-accent-contrast);
+}
