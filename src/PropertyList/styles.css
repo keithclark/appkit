@@ -6,8 +6,8 @@
 }
 ::slotted(ui-separator) {
   border-top: 1px solid var(--ui-color-separator);
-  margin-top: calc(var(--spacing-inner) - .5px);
-  margin-bottom: calc(var(--spacing-inner) - .5px);
+  margin-top: calc(var(--ui-spacing-unit) * 3 - .5px);
+  margin-bottom: calc(var(--ui-spacing-unit) * 3 - .5px);
   grid-column: 1 / span 2;
 }
 

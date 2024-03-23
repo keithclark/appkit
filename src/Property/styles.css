@@ -5,12 +5,11 @@
   gap: calc(var(--ui-spacing-unit) * 2);
 }
 label {
-  align-items: baseline;
+  align-items: center;
   display: grid;
   grid-template-columns: inherit;
   grid-column: inherit;
-  white-space: break-spaces;
 }
-span {
+ui-iconlabel {
   color: var(--ui-color-base-muted);
 }
