@@ -16,8 +16,7 @@ export default class UiToggleButtonElement extends UiButtonElement {
 
 
   /**
-   * Sets or retrieves the pressed state in the button. If the value is an 
-   * empty string, no icon will be displayed.
+   * Sets or retrieves the pressed state of the button.
    * @type {boolean} 
    */
   get pressed() {
