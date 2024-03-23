@@ -19,39 +19,33 @@ export default class UiButtonElement extends UiElement {
 
   constructor() {
     super(template, stylesheet);
-    this.#iconElem = this.shadowRoot.querySelector('ui-icon');
+    this.#iconElem = this.shadowRoot.querySelector('ui-iconlabel');
     this.#buttonElem = this.shadowRoot.querySelector('button');
   }
 
   static get observedAttributes() {
-    return ['icon'];
+    return ['icon', 'disabled'];
   }
 
   /**
-   * Sets or retrieves the icon displayed in the button. If the  value is an 
+   * Sets or retrieves the icon displayed in the component. If the value is an 
    * empty string, no icon will be displayed.
    * @type {string} 
    */
   get icon() {
-    return this.#iconElem.name;
+    return this.#iconElem.icon;
   }
 
   set icon(value) {
-    this.setAttribute('icon', value);
-  }
-
-  #updateIcon() {
-    this.#buttonElem.style.setProperty('--has-icon', this.#iconElem.name ? 1 : 0);
+    this.#iconElem.setAttribute('icon', value);
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'icon') {
-      this.#iconElem.setAttribute('name', newValue);
-      this.#updateIcon();
+      this.icon = newValue;
+    } else if (name === 'disabled') {
+      this.#buttonElem.disabled = newValue !== null;
     }
   }
 
-  connectedCallback() {
-    this.#updateIcon();
-  }
 }
