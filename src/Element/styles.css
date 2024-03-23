@@ -12,6 +12,8 @@
   --ui-spacing: calc(var(--ui-spacing-unit) * 8);
   --ui-radius: var(--ui-spacing-unit);
   --ui-transion-duration: 300ms;
+  --ui-icon-visibility: 1;
+  --ui-text-visibility: 1;
 }
 
 
