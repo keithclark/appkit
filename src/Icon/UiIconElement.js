@@ -26,7 +26,7 @@ export default class UiIconElement extends UiElement {
    * @param {string} path The SVG path data, used on the `d` attribute.
    */
   static registerIcon(name, path) {
-    ICONS[name] = path
+    ICONS[name] = path;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
