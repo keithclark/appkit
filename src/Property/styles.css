@@ -9,6 +9,7 @@ label {
   display: grid;
   grid-template-columns: inherit;
   grid-column: inherit;
+  align-items: baseline;
 }
 ui-iconlabel {
   color: var(--ui-color-base-muted);

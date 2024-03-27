@@ -1,4 +1,16 @@
-:host([pressed]) {
+/*:host([pressed]) {
   background: var(--ui-color-accent);
   color: var(--ui-color-accent-contrast);
+}
+
+:host(:not([disabled])[pressed]:hover) {
+  background-color: var(--ui-color-accent-dark)
+}
+
+*/
+:host([pressed]) {
+  --invert: 0
+}
+:host(:not([pressed])) {
+  --invert: 1
 }

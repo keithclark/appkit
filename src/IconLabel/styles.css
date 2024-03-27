@@ -29,3 +29,12 @@ span {
   min-width: 0;
   max-width: 100%;
 }
+/*
+:host-context(ui-button) div {
+  margin: 0 calc(var(--show-text) * 4px);
+}
+
+:host-context(ui-togglebutton) div {
+  margin: 0 calc(var(--show-text) * 4px);
+}
+*/

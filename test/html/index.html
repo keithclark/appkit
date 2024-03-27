@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="css.css" />
+</head>
+
+<body>
+  <template id="example">
+    <div class="example">
+      <h2 class="example__title"></h2>
+      <pre class="example__code"></pre>
+      <iframe class="example__preview"></iframe>
+
+    </div>
+  </template>
+
+  <template data-title="Icons">
+    <ui-icon name="openUrl"></ui-icon>
+    <ui-icon name="openFile"></ui-icon>
+    <ui-icon name="openPaneRight"></ui-icon>
+    <ui-icon name="closePaneRight"></ui-icon>
+  </template>
+
+  <template data-title="Icon label">
+    <ui-iconlabel icon="openUrl">Click me</ui-iconlabel>
+  </template>
+  <template>
+    <ui-iconlabel style="--ui-text-visibility:0" icon="openUrl">Click me</ui-iconlabel>
+  </template>
+  <template>
+    <ui-iconlabel style="--ui-icon-visibility:0" icon="openUrl">Click me</ui-iconlabel>
+  </template>
+
+  <template data-title="Buttons">
+    <ui-button>Click me</ui-button>
+    <ui-button icon="openUrl">With Icon</ui-button>
+    <ui-button icon="openFile" style="--ui-text-visibility:0">Text hidden</ui-button>
+    <ui-button icon="openFile" style="--ui-icon-visibility:0">Icon hidden</ui-button>
+    <ui-button icon="openUrl" disabled>Disabled</ui-button>
+  </template>
+  
+  <template>
+    <ui-button style="--invert: 1">Click me</ui-button>
+    <ui-button style="--invert: 1"icon="openUrl">With Icon</ui-button>
+    <ui-button style="--invert: 1; --ui-text-visibility:0" icon="openFile">Text hidden</ui-button>
+    <ui-button style="--invert: 1; --ui-icon-visibility:0" icon="openFile">Icon hidden</ui-button>
+    <ui-button style="--invert: 1" icon="openUrl" disabled>Disabled</ui-button>
+  </template>
+
+  <template data-title="Toggle Buttons">
+    <ui-togglebutton icon="openUrl">Toggle me</ui-togglebutton>
+    <ui-togglebutton icon="openUrl" pressed>Toggle me</ui-togglebutton>
+    <ui-togglebutton icon="openUrl" pressed disabled>Disabled</ui-togglebutton>
+    <ui-togglebutton icon="openUrl" onclick="event.preventDefault()">Event cancelled</ui-togglebutton>
+  </template>
+
+
+  <template data-title="Property">
+      <ui-property label="First Name">John</ui-property>
+      <ui-property label="Last Name">Smith</ui-property>
+  </template>
+  
+  <template>
+    <ui-property icon="openFile" label="First Name">John</ui-property>
+    <ui-property icon="openUrl" label="Last Name">Smith</ui-property>
+    <ui-property icon="openUrl" label="Colour">
+      <select>
+        <option>Red</option>
+      </select>
+    </ui-property>
+  </template>
+  
+  
+  
+  <template data-title="Property List">
+      <ui-propertylist>
+        <ui-property label="First Name">John</ui-property>
+        <ui-property label="Last Name">Smith</ui-property>
+        <ui-separator></ui-separator>
+        <ui-property label="Email">john.smith@some-domain.com</ui-property>
+        <ui-property label="Address">1 Some Road<br>Some Town<br>Some Country</ui-property>
+        <ui-property label="Age">45</ui-property>
+        <ui-separator></ui-separator>
+        <ui-property label="Title">
+          <select><option>Mr.</option></select>
+        </ui-property>
+        <ui-property label="Email">
+          <input type="text" value="john.smith@some-domain.com">
+        </ui-property>
+      </ui-propertylist>
+    </div>
+  </template>  
+
+  <template data-title="Toolbox">
+      <ui-toolbox>
+        <ui-button icon="openUrl">Open URL</ui-button>
+        <ui-button icon="openFile">Open File</ui-button>
+        <ui-button icon="openPaneRight">Open</ui-button>
+        <ui-button icon="closePaneRight">Close</ui-button>
+      </ui-toolbox>
+    </div>
+  </template>
+
+  <template data-title="Toolbar">
+  
+      <ui-toolbar>
+        <ui-toolbox>
+          <ui-button icon="openUrl">Open URL</ui-button>
+          <ui-button icon="openFile">Open File</ui-button>
+        </ui-toolbox>
+        
+        <ui-toolbox>
+          <ui-property label="Zoom">
+            <select>
+              <option>100%</option>
+              <option>200%</option>
+              <option>400%</option>
+            </select>
+          </ui-property>
+        </ui-toolbox>
+  
+        <ui-separator></ui-separator>
+  
+        <ui-toolbox>
+          <ui-togglebutton icon="closePaneRight" pressed>Thumbs</ui-togglebutton>
+          <ui-togglebutton icon="closePaneRight">Metadata</ui-togglebutton>
+        </ui-toolbox>
+      </ui-toolbar>
+      </div>
+  </template>
+
+    
+  <script type="module">
+    const CSS = `
+    html {
+      margin: 0;
+      padding: 0;
+      contain: layout;
+      min-height:100%;
+      min-width:100%;
+    }
+    body {
+      margin: 0;
+      padding: 8px;
+    }
+    html::before {
+      --grid-size: 8px;
+      content: '';
+      position: absolute;
+      top:0;left:0;
+      width:100%;
+      height:100%;
+      background-image: radial-gradient(#888a .5px, transparent 0);
+      background-size: var(--grid-size) var(--grid-size);
+      background-position: calc(var(--grid-size) / 2 + 8.5px)  calc(var(--grid-size) / 2 + 8.5px);
+      mix-blend-mode: difference;
+      pointer-events: none;
+    }
+
+    /*
+    body * {
+      box-shadow: inset 0 0 0 1px red;
+    }
+    body * * {
+      box-shadow: inset 0 0 0 1px green;
+    }
+    */
+    body {
+      display: flex;
+      align-items: flex-start;
+      gap:8px;
+    }
+    `
+    import PreviewElement from './PreviewElement.js';
+    customElements.define('app-preview', PreviewElement);
+
+    const formatCode = (text) => {
+    // HTML -> text
+    text = text.replace(/</g, "&lt;");
+    text = text.replace(/>/g, "&gt;");
+    text = text.replace(/\n    /g,'\n').trim()
+    // Syntax highlighting
+    
+    text = text.replace(/=""/g, '');
+
+    text = text.replace(/&lt;(?<tag>\/?[a-z0-9-]+)(?<attr>\s+.*?)?&gt;/g, function(a,b,c,d,e,f) {
+      const attrs = f.attr?.replace(/(\s+[a-z-]+)(=".*?")?/g, '<span style="color:#882574;">$1</span><span style="color:#dd5426">$2</span>') || '';
+      return `<span style="color:#704bc4">&lt;${f.tag}${attrs}&gt;</span>`;
+    })
+
+
+    //text = text.replace(/&lt;(\/?[a-z0-9-]+)(\s+.*?)?>/g,'<span style="color:#08c">&lt;$1<span style="color:#a5e">$2</span>&gt;</span>');
+
+    return text
+  }
+
+    const exampleTemplate = document.getElementById('example')
+    const examples = Array.from(document.querySelectorAll('template:not([id="example"])'));
+    examples.forEach((example) => {
+      const e = exampleTemplate.content.cloneNode(true);
+      e.querySelector('.example__title').textContent = example.dataset.title;
+      e.querySelector('.example__code').innerHTML = formatCode(example.innerHTML);
+      e.querySelector('.example__preview').srcdoc = `<style>${CSS}</style><script type=module>import {init} from "/dist/bundle.js";init()</${'script'}>` + example.innerHTML;
+      setTimeout((q) => {q.style.minHeight = (q.contentDocument.body.scrollHeight + 2) + 'px'}, 0, e.querySelector('.example__preview'))
+      const q = document.body.appendChild(e);
+    })
+
+
+  </script>
+</body>

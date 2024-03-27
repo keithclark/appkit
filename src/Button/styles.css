@@ -1,10 +1,29 @@
 :host(:not([hidden])) {
   display: inline-block;
-  background: transparent;
-  border: 2px solid var(--ui-color-accent);
-  color: var(--ui-color-accent);
-  height: calc(var(--ui-spacing) - 4px);
+  //height: var(--ui-spacing);
   border-radius: var(--ui-radius);
+  -webkit-tap-highlight-color: transparent;
+  background-color: color-mix(
+    in srgb,
+    transparent/* calc(100% * var(--invert, 0))*/,
+    var(--ui-color-accent) calc(100% * (1 - var(--invert, 0)))
+  );
+
+  color: color-mix(
+    in srgb,
+    var(--ui-color-accent)/* calc(100% * var(--invert, 0))*/,
+    var(--ui-color-accent-contrast) calc(100% * (1 - var(--invert, 0)))
+  );
+}
+
+@media(hover) {
+  :host(:not([disabled]):hover) {
+    background-color: color-mix(
+      in srgb,
+      var(--ui-color-base-dark)/* calc(100% * var(--invert, 0))*/,
+      var(--ui-color-accent-dark) calc(100% * (1 - var(--invert, 0)))
+    );
+  }
 }
 
 :host([disabled]) {
@@ -15,12 +34,15 @@ button {
   display: block;
   font: inherit;
   background: transparent;
-  border: none;
+  border: 0;
   color: inherit;
+  /*
   margin: 0;
   align-self: center;
-  padding: 0 var(--ui-spacing-unit);
+  */
+  padding: calc(2 * var(--ui-spacing-unit));
   height: inherit;
   -webkit-user-select: none;
   user-select: none;
 }
+

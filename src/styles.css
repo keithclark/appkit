@@ -2,9 +2,10 @@
   --ui-color-base: #eee;
   --ui-color-base-contrast: #000;
   --ui-color-base-muted: #777;
-  --ui-color-base-dark: #ddd;
+  --ui-color-base-dark: color-mix(in srgb, var(--ui-color-base), #000 5%);
   --ui-color-accent: color-mix(in srgb, hotpink, #000 10%);
   --ui-color-accent-contrast: #fff;
+  --ui-color-accent-dark: color-mix(in srgb, var(--ui-color-accent), #000 15%);
   --ui-color-separator: #0003;
   --ui-color-shadow: #0002; 
   --ui-spacing-unit: 4px;
@@ -22,10 +23,11 @@
     --ui-color-base: #22262d;
     --ui-color-base-contrast: #ddd;
     --ui-color-base-muted: #999;
-    --ui-color-base-dark: #11161d;
+    --ui-color-base-dark: color-mix(in srgb, var(--ui-color-base), #000 30%);
     --ui-color-accent: hotpink;
+    --ui-color-accent-dark: color-mix(in srgb, var(--ui-color-accent), #000 20%);
     --ui-color-accent-contrast: #000;
-    --ui-color-separator: #fff3;
+    --ui-color-separator: #fff2;
     --ui-color-shadow: #0006;
   }
 }
@@ -69,4 +71,8 @@ select {
   background-position: right calc(var(--ui-spacing-unit) * 2) center;
   background-repeat: no-repeat;
   padding-right: var(--ui-padding);
+}
+
+option::after {
+  content: 'x'
 }

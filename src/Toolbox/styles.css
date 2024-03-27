@@ -5,3 +5,7 @@ div {
   display: flex;
   gap: calc(var(--ui-spacing-unit) * 2);
 }
+
+::slotted(ui-button) {
+  --invert: 1;
+}

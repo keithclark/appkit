@@ -10,6 +10,7 @@ import UiSeparatorElement from './Separator/UiSeparatorElement.js';
 import UiPropertyElement from './Property/UiPropertyElement.js';
 import UiPropertyListElement from './PropertyList/UiPropertyListElement.js';
 import UiIconLabelElement from './IconLabel/UiIconLabelElement.js';
+import UiModalDialogElement from './ModalDialog/UiModalDialogElement.js';
 
 /**
  * Initializes App Kit. Registers the Web Components and adds the base 
@@ -18,6 +19,14 @@ import UiIconLabelElement from './IconLabel/UiIconLabelElement.js';
 const init = () => {
   // Add the global stylesheet to the document
   document.adoptedStyleSheets.push(globalStyles);
+  /*
+  for (const rule of globalStyles.rules) {
+    if (rule.type === 4) {
+      console.log(rule.media.mediaText = '(prefers-color-scheme: light)')
+      
+    }
+  }
+  */
 
   // Register the custom elements
   customElements.define('ui-icon', UiIconElement);
@@ -30,6 +39,7 @@ const init = () => {
   customElements.define('ui-property', UiPropertyElement);
   customElements.define('ui-propertylist', UiPropertyListElement);
   customElements.define('ui-iconlabel', UiIconLabelElement);
+  customElements.define('ui-modaldialog', UiModalDialogElement);
 }
 
 export {
@@ -43,5 +53,6 @@ export {
   UiSeparatorElement,
   UiPropertyElement,
   UiPropertyListElement,
-  UiIconLabelElement
+  UiIconLabelElement,
+  UiModalDialogElement
 };

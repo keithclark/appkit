@@ -1,0 +1,327 @@
+<script type="module">
+import {init} from "/dist/bundle.js";
+init()
+</script>
+
+<style>
+:root {
+  --ui-inner-spacing: .25em;
+  --ui-outer-spacing: .5em;
+  font: 100%/1.5 Arial;
+  background: var(--ui-color-base-dark);
+}
+ui-button {
+  border-radius: 5px;
+}
+
+@media (max-width: 50em) {
+  ui-toolbox ui-button {
+    --ui-text-visibility: 0;
+  }
+}
+ui-toolbar {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: var(--ui-inner-spacing);
+}
+ui-toolbar .filler {
+  margin: auto;
+}
+ui-toolbar .separator {
+  border: .5px solid #ccc;
+  height: 1.25em;
+  margin: 0 var(--ui-outer-spacing);
+}
+/*
+ui-toolbar > ui-toolbox + ui-toolbox {
+  border-left:1px solid #ccc;
+  margin-left: 1em;
+  padding-left:1em;
+}
+*/
+
+body > ui-splitview {
+  border: 2px solid red;
+  width: 100%;
+  height: 50vh;
+
+}
+
+
+ui-separator ~ [hidden] + ui-separator {
+  display: none;
+}
+
+.example {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  align-content: stretch;
+}
+.example__title {
+  margin: 2em 0 0 0;
+}
+.example__code,.example__preview {
+  margin: 0;
+  padding: 1em;
+  overflow: auto;
+  background: var(--ui-color-base);
+  border:1px solid var(--ui-color-separator);
+  border-radius: 5px;
+  max-height: 50vh;
+  box-sizing: border-box;
+}
+.example__code {
+  grid-column: 2;
+}
+.example__preview {
+  grid-column: 1;
+}
+</style>
+
+<script>
+  /** @param {string} text */
+  const formatCode = (text) => {
+    // HTML -> text
+    text = text.replace(/</g, "&lt;");
+    text = text.replace(/>/g, "&gt;");
+    text = text.replace(/\n    /g,'\n').trim()
+    // Syntax highlighting
+    
+    text = text.replace(/=""/g, '');
+
+    text = text.replace(/&lt;(?<tag>\/?[a-z0-9-]+)(?<attr>\s+.*?)?&gt;/g, function(a,b,c,d,e,f) {
+      const attrs = f.attr?.replace(/(\s+[a-z-]+)(=".*?")?/g, '<span style="color:#5ce">$1</span><span style="color:#c64">$2</span>') || '';
+      return `<span style="color:#07b">&lt;${f.tag}${attrs}&gt;</span>`;
+    })
+
+
+    //text = text.replace(/&lt;(\/?[a-z0-9-]+)(\s+.*?)?>/g,'<span style="color:#08c">&lt;$1<span style="color:#a5e">$2</span>&gt;</span>');
+
+    return text
+  }
+  window.onload = () => {
+    [...document.querySelectorAll('.example__preview')].forEach((example) => {
+      const pre = document.createElement('pre')
+      pre.className = 'example__code'
+      pre.innerHTML = formatCode(example.innerHTML);
+      example.parentElement.insertBefore(pre,example.nextElementSibling)
+    })
+  }
+</script>
+
+<div class="example">
+  <h2 class="example__title">Icon Label</h2>
+  <div class="example__preview">
+    <ui-iconlabel icon="openUrl">Click me</ui-iconlabel>
+  </div>
+  <div class="example__preview">
+    <ui-iconlabel style="--ui-text-visibility:0" icon="openUrl">Click me</ui-iconlabel>
+  </div>
+  <div class="example__preview">
+    <ui-iconlabel style="--ui-icon-visibility:0" icon="openUrl">Click me</ui-iconlabel>
+  </div>
+</div>
+
+
+<div class="example">
+  <h2 class="example__title">Icon</h2>
+  <div class="example__preview">
+    <ui-icon name="openUrl"></ui-icon>
+    <ui-icon name="openFile"></ui-icon>
+    <ui-icon name="openPaneRight"></ui-icon>
+    <ui-icon name="closePaneRight"></ui-icon>
+  </div>
+</div>
+
+
+
+<div class="example">
+  <h2 class="example__title">Button</h2>
+  <div class="example__preview">
+    <ui-button>Click me</ui-button>
+    <ui-button icon="openUrl">With Icon</ui-button>
+    <ui-button icon="openFile" style="--ui-text-visibility:0">Text hidden</ui-button>
+    <ui-button icon="openFile" style="--ui-icon-visibility:0">Icon hidden</ui-button>
+    <ui-button icon="openUrl" disabled>Disabled</ui-button>
+  </div>
+  <div class="example__preview">
+    <ui-button style="--invert: 1">Click me</ui-button>
+    <ui-button style="--invert: 1"icon="openUrl">With Icon</ui-button>
+    <ui-button style="--invert: 1; --ui-text-visibility:0" icon="openFile">Text hidden</ui-button>
+    <ui-button style="--invert: 1; --ui-icon-visibility:0" icon="openFile">Icon hidden</ui-button>
+    <ui-button style="--invert: 1" icon="openUrl" disabled>Disabled</ui-button>
+  </div>
+  <div class="example__preview">
+    Some <ui-button>Click me</ui-button> buttons
+    <ui-button icon="openUrl">With Icon</ui-button>
+    Some
+    <ui-button icon="openUrl" style="--ui-text-visibility:0">Only Icon</ui-button>
+  </div>
+</div>
+
+
+<div class="example">
+  <h2 class="example__title">Toggle Button</h2>
+  <div class="example__preview">
+    <ui-togglebutton icon="openUrl">Toggle me</ui-togglebutton>
+    <ui-togglebutton icon="openUrl" pressed>Toggle me</ui-togglebutton>
+    <ui-togglebutton icon="openUrl" pressed disabled>Disabled</ui-togglebutton>
+    <ui-togglebutton icon="openUrl" onclick="event.preventDefault()">Event cancelled</ui-togglebutton>
+  </div>
+</div>
+
+
+<div class="example">
+  <h2 class="example__title">Property</h2>
+  <div class="example__preview">
+    <ui-property label="First Name">John</ui-property>
+    <ui-property label="Last Name">Smith</ui-property>
+  </div>
+  <div class="example__preview">
+    <ui-property icon="openFile" label="First Name">John</ui-property>
+    <ui-property icon="openUrl" label="Last Name">Smith</ui-property>
+    <ui-property icon="openUrl" label="Colour"><select><option>Red</option></select></ui-property>
+  </div>
+</div>
+
+
+
+<div class="example">
+  <h2 class="example__title">Property List</h2>
+  <div class="example__preview">
+    <ui-propertylist>
+      <ui-property label="First Name">John</ui-property>
+      <ui-property label="Last Name">Smith</ui-property>
+      <ui-separator></ui-separator>
+      <ui-property label="Email">john.smith@some-domain.com</ui-property>
+      <ui-property label="Age">45</ui-property>
+      <ui-separator></ui-separator>
+      <ui-property label="Title"><select><option>Mr.</option></select></ui-property>
+      <ui-property label="Email"><input type="text" value="john.smith@some-domain.com"></ui-property>
+    </ui-propertylist>
+  </div>
+</div>
+
+<div class="example">
+  <h2 class="example__title">Toolbox</h2>
+  <div class="example__preview">
+    <ui-toolbox>
+      <ui-button icon="openUrl">Open URL</ui-button>
+      <ui-button icon="openFile">Open File</ui-button>
+      <ui-button icon="openPaneRight">Open</ui-button>
+      <ui-button icon="closePaneRight">Close</ui-button>
+    </ui-toolbox>
+  </div>
+</div>
+
+<div class="example">
+  <h2 class="example__title">Toolbar</h2>
+  <div class="example__preview">
+
+    <ui-toolbar>
+      <ui-toolbox>
+        <ui-button icon="openUrl">Open URL</ui-button>
+        <ui-button icon="openFile">Open File</ui-button>
+      </ui-toolbox>
+      
+      <div class="filler"></div>
+
+      <ui-toolbox>
+        <ui-property label="Zoom">
+          <select>
+            <option>100%</option>
+            <option>200%</option>
+            <option>400%</option>
+          </select>
+        </ui-property>
+      </ui-toolbox>
+
+      <ui-separator></ui-separator>
+
+      <ui-toolbox>
+        <ui-togglebutton icon="closePaneRight" pressed>Thumbs</ui-togglebutton>
+        <ui-togglebutton icon="closePaneRight">Metadata</ui-togglebutton>
+      </ui-toolbox>
+    </ui-toolbar>
+    </div>
+  </div>
+
+<style>
+  #app {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height:100vh
+  }
+   #sv {
+      --direction: row-reverse;
+      box-sizing: border-box;
+    }
+    ui-splitview > div {
+      padding: 20px;
+    }
+  @media (max-width: 40em) {
+    #sv {
+      --direction: column;
+      border-color:blue
+    }
+
+  }
+</style>
+
+<div class="example">
+  <h2 class="example__title">App</h2>
+  <div class="example__preview"  id="app">
+
+    <ui-toolbar>
+      <ui-toolbox>
+        <ui-button icon="openUrl">Open URL</ui-button>
+        <ui-button icon="openFile">Open File</ui-button>
+        <ui-button icon="openPaneRight">Open</ui-button>
+        <ui-button icon="closePaneRight">Close</ui-button>
+      </ui-toolbox>
+      
+      <div class="filler"></div>
+    
+      <ui-separator></ui-separator>
+    
+      <ui-toolbox>
+        <ui-property label="Zoom">
+          <select>
+            <option>100%</option>
+            <option>200%</option>
+            <option>400%</option>
+          </select>
+        </ui-property>
+      </ui-toolbox>
+    
+      <ui-separator></ui-separator>
+    
+      <ui-toolbox>
+        <ui-togglebutton icon="closePaneRight" pressed onclick="sv.toggle(this.pressed)">Thumbs</ui-togglebutton>
+        <ui-togglebutton icon="closePaneRight" pressed onclick="sv2.toggle(this.pressed)">Metadata</ui-togglebutton>
+      </ui-toolbox>
+
+    </ui-toolbar>
+
+    <ui-splitview id="sv" vertical>
+      <ui-splitview slot="primary" id="sv2" style="--collapse-behavior: smooth">
+        <div slot="primary">
+          <p>3 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+        </div>
+        <div slot="secondary">
+          <ui-propertylist>
+            <ui-property icon="openFile" label="Name">John Smith</ui-property>
+            <ui-separator></ui-separator>
+            <ui-property icon="openUrl" label="Email">john.smith@tld.com</ui-property>
+            <ui-property icon="openUrl" label="Age">18</ui-property>
+          </ui-propertylist>
+        </div>
+      </ui-splitview>
+      <div slot="secondary">
+        <p>3 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</p>
+      </div>
+    </ui-splitview>
+  </div>
+</div>

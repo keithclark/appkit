@@ -1,4 +1,4 @@
-const sheet$9 = new CSSStyleSheet();sheet$9.replaceSync(":root{--ui-color-base:#eee;--ui-color-base-contrast:#000;--ui-color-base-muted:#777;--ui-color-base-dark:#ddd;--ui-color-accent:color-mix(in srgb,hotpink,#000 10%);--ui-color-accent-contrast:#fff;--ui-color-separator:#0003;--ui-color-shadow:#0002;--ui-spacing-unit:4px;--ui-padding:calc(var(--ui-spacing-unit) * 6);--ui-spacing:calc(var(--ui-spacing-unit) * 8);--ui-radius:var(--ui-spacing-unit);--ui-transion-duration:300ms;--ui-icon-visibility:1;--ui-text-visibility:1;}@media (prefers-color-scheme:dark){:root{--ui-color-base:#22262d;--ui-color-base-contrast:#ddd;--ui-color-base-muted:#999;--ui-color-base-dark:#11161d;--ui-color-accent:hotpink;--ui-color-accent-contrast:#000;--ui-color-separator:#fff3;--ui-color-shadow:#0006;}}html{background-color:var(--ui-color-base);color:var(--ui-color-base-contrast);accent-color:var(--ui-color);background-size:var(--ui-spacing-unit) var(--ui-spacing-unit),8px 8px;background-repeat:repeat;letter-spacing:-0.03em;-webkit-text-size-adjust:none;font-family:Poppins,system-ui;font-size:14px;line-height:calc(var(--ui-spacing-unit) * 6);}input,select{line-height:inherit;font:inherit;background-color:var(--ui-color-base-dark);color:var(--ui-color-base-contrast);border:0;height:calc(var(--ui-padding) + 8px);border-radius:var(--ui-radius);-webkit-appearance:none;-moz-appearance:none;appearance:none;text-indent:var(--ui-spacing-unit);padding:0;}select{background:transparent;color:var(--ui-color-base-contrast);font:inherit;background-color:var(--ui-color-base-dark);background-image:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='50' fill='rgba(128,128,128,.6)'><polygon points='0,0 100,0 50,50'/></svg>\");background-size:calc(var(--ui-spacing-unit) * 2);background-position:right calc(var(--ui-spacing-unit) * 2) center;background-repeat:no-repeat;padding-right:var(--ui-padding);}");
+const sheet$a = new CSSStyleSheet();sheet$a.replaceSync(":root{--ui-color-base:#eee;--ui-color-base-contrast:#000;--ui-color-base-muted:#777;--ui-color-base-dark:color-mix(in srgb,var(--ui-color-base),#000 5%);--ui-color-accent:color-mix(in srgb,hotpink,#000 10%);--ui-color-accent-contrast:#fff;--ui-color-accent-dark:color-mix(in srgb,var(--ui-color-accent),#000 15%);--ui-color-separator:#0003;--ui-color-shadow:#0002;--ui-spacing-unit:4px;--ui-padding:calc(var(--ui-spacing-unit) * 6);--ui-spacing:calc(var(--ui-spacing-unit) * 8);--ui-radius:var(--ui-spacing-unit);--ui-transion-duration:300ms;--ui-icon-visibility:1;--ui-text-visibility:1;}@media (prefers-color-scheme:dark){:root{--ui-color-base:#22262d;--ui-color-base-contrast:#ddd;--ui-color-base-muted:#999;--ui-color-base-dark:color-mix(in srgb,var(--ui-color-base),#000 30%);--ui-color-accent:hotpink;--ui-color-accent-dark:color-mix(in srgb,var(--ui-color-accent),#000 20%);--ui-color-accent-contrast:#000;--ui-color-separator:#fff2;--ui-color-shadow:#0006;}}html{background-color:var(--ui-color-base);color:var(--ui-color-base-contrast);accent-color:var(--ui-color);background-size:var(--ui-spacing-unit) var(--ui-spacing-unit),8px 8px;background-repeat:repeat;letter-spacing:-0.03em;-webkit-text-size-adjust:none;font-family:Poppins,system-ui;font-size:14px;line-height:calc(var(--ui-spacing-unit) * 6);}input,select{line-height:inherit;font:inherit;background-color:var(--ui-color-base-dark);color:var(--ui-color-base-contrast);border:0;height:calc(var(--ui-padding) + 8px);border-radius:var(--ui-radius);-webkit-appearance:none;-moz-appearance:none;appearance:none;text-indent:var(--ui-spacing-unit);padding:0;}select{background:transparent;color:var(--ui-color-base-contrast);font:inherit;background-color:var(--ui-color-base-dark);background-image:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='50' fill='rgba(128,128,128,.6)'><polygon points='0,0 100,0 50,50'/></svg>\");background-size:calc(var(--ui-spacing-unit) * 2);background-position:right calc(var(--ui-spacing-unit) * 2) center;background-repeat:no-repeat;padding-right:var(--ui-padding);}option::after{content:'x'}");
 
 class UiElement extends HTMLElement {
 
@@ -15,16 +15,18 @@ class UiElement extends HTMLElement {
 
 }
 
-const sheet$8 = new CSSStyleSheet();sheet$8.replaceSync(":host(:not([hidden])){display:inline-block;width:24px;}svg{display:block;width:100%;aspect-ratio:1;}");
+const sheet$9 = new CSSStyleSheet();sheet$9.replaceSync(":host(:not([hidden])){display:inline-block;width:24px;}svg{display:block;width:100%;aspect-ratio:1;}");
 
-const x$7 = document.createElement('template');x$7.innerHTML = "<svg viewBox=\"0 -960 960 960\" width=\"24\"><path fill=\"currentColor\"></svg>";
+const x$8 = document.createElement('template');x$8.innerHTML = "<svg viewBox=\"0 -960 960 960\" width=\"24\"><path fill=\"currentColor\"></svg>";
 
 var ICONS = {
   'openfile': "M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640H447l-80-80H160v480l96-320h684L837-217q-8 26-29.5 41.5T760-160H160Zm84-80h516l72-240H316l-72 240Zm0 0 72-240-72 240Zm-84-400v-80 80Z",
   "openurl": "M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H600v-80h160v-480H200v480h160v80H200Zm240 0v-246l-64 64-56-58 160-160 160 160-56 58-64-64v246h-80Z",
   "openpaneright": "M460-320v-320L300-480l160 160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm440-80h120v-560H640v560Zm-80 0v-560H200v560h360Zm80 0h120-120Z",
   "closepaneright": "M300-640v320l160-160-160-160ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm440-80h120v-560H640v560Zm-80 0v-560H200v560h360Zm80 0h120-120Z",
-  "search": "M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
+  "search": "M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z",
+  "close": "m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z",
+  "info": "M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
 };
 
 class UiIconElement extends UiElement {
@@ -35,7 +37,7 @@ class UiIconElement extends UiElement {
   #path;
 
   constructor() {
-    super(x$7, sheet$8);
+    super(x$8, sheet$9);
     this.#path = this.shadowRoot.querySelector('path');
     this.setAttribute('aria-hidden', 'true');
   }
@@ -77,9 +79,9 @@ class UiIconElement extends UiElement {
 
 }
 
-const sheet$7 = new CSSStyleSheet();sheet$7.replaceSync(":host(:not([hidden])){--secondary-size:20em;--direction:row;--collapse-behavior:auto;display:block;overflow:hidden}.splitView,.splitView__pane{display:flex;flex-direction:var(--direction);overflow:hidden;}.splitView{height:100%;width:100%;--primary-flex:1 1 calc(100% - var(--secondary-size));--secondary-flex:0 0 var(--secondary-size);}.splitView__pane{min-width:0;min-height:0;}#secondary{transition-timing-function:ease-in-out;}#primary,#primary > div{flex:var(--primary-flex)}#secondary{flex:var(--secondary-flex);}#secondary > div{flex:var(--secondary-flex);}.splitView.collapse #secondary{flex-basis:0;}.wrap{display:grid;overflow:auto;}@media not (prefers-reduced-motion){.animate{transition:var(--ui-transion-duration) flex-basis;}}");
+const sheet$8 = new CSSStyleSheet();sheet$8.replaceSync(":host(:not([hidden])){--secondary-size:20em;--direction:row;--collapse-behavior:auto;display:block;overflow:hidden}.splitView,.splitView__pane{display:flex;flex-direction:var(--direction);overflow:hidden;}.splitView{height:100%;width:100%;--primary-flex:1 1 calc(100% - var(--secondary-size));--secondary-flex:0 0 var(--secondary-size);}.splitView__pane{min-width:0;min-height:0;}#secondary{transition-timing-function:ease-in-out;}#primary,#primary > div{flex:var(--primary-flex)}#secondary{flex:var(--secondary-flex);}#secondary > div{flex:var(--secondary-flex);}.splitView.collapse #secondary{flex-basis:0;}.wrap{display:grid;overflow:auto;}@media not (prefers-reduced-motion){.animate{transition:var(--ui-transion-duration) flex-basis;}}");
 
-const x$6 = document.createElement('template');x$6.innerHTML = "<div class=\"splitView\"> <div id=\"primary\" class=\"splitView__pane\"> <div class=\"wrap\"> <slot name=\"primary\"></slot> </div> </div> <div id=\"secondary\" class=\"splitView__pane\"> <div class=\"wrap\"> <slot name=\"secondary\"></slot> </div> </div> </div> ";
+const x$7 = document.createElement('template');x$7.innerHTML = "<div class=\"splitView\"> <div id=\"primary\" class=\"splitView__pane\"> <div class=\"wrap\"> <slot name=\"primary\"></slot> </div> </div> <div id=\"secondary\" class=\"splitView__pane\"> <div class=\"wrap\"> <slot name=\"secondary\"></slot> </div> </div> </div> ";
 
 /**
  * @typedef ToggleOptions
@@ -123,7 +125,7 @@ class UiSplitViewElement extends UiElement {
   #transitionOptions;
 
   constructor() {
-    super(x$6, sheet$7);
+    super(x$7, sheet$8);
     this.#rootElem = this.shadowRoot.querySelector('.splitView');
     this.#secondaryElem = this.shadowRoot.querySelector('#secondary');
   }
@@ -220,9 +222,9 @@ class UiSplitViewElement extends UiElement {
   }
 }
 
-const sheet$6 = new CSSStyleSheet();sheet$6.replaceSync(":host(:not([hidden])){display:inline-block;background:transparent;border:2px solid var(--ui-color-accent);color:var(--ui-color-accent);height:calc(var(--ui-spacing) - 4px);border-radius:var(--ui-radius);}:host([disabled]){--ui-color-accent:var(--ui-color-base-muted);}button{display:block;font:inherit;background:transparent;border:none;color:inherit;margin:0;align-self:center;padding:0 var(--ui-spacing-unit);height:inherit;-webkit-user-select:none;user-select:none;}");
+const sheet$7 = new CSSStyleSheet();sheet$7.replaceSync(":host(:not([hidden])){display:inline-block;//height:var(--ui-spacing);border-radius:var(--ui-radius);-webkit-tap-highlight-color:transparent;background-color:color-mix( in srgb,transparent,var(--ui-color-accent) calc(100% * (1 - var(--invert,0))) );color:color-mix( in srgb,var(--ui-color-accent),var(--ui-color-accent-contrast) calc(100% * (1 - var(--invert,0))) );}@media(hover){:host(:not([disabled]):hover){background-color:color-mix( in srgb,var(--ui-color-base-dark),var(--ui-color-accent-dark) calc(100% * (1 - var(--invert,0))) );}}:host([disabled]){--ui-color-accent:var(--ui-color-base-muted);}button{display:block;font:inherit;background:transparent;border:0;color:inherit;padding:calc(2 * var(--ui-spacing-unit));height:inherit;-webkit-user-select:none;user-select:none;}");
 
-const x$5 = document.createElement('template');x$5.innerHTML = "<button> <ui-iconlabel><slot></slot></ui-iconlabel> </button> ";
+const x$6 = document.createElement('template');x$6.innerHTML = "<button> <ui-iconlabel><slot></slot></ui-iconlabel> </button> ";
 
 /**
  * Property | Inherts | Description 
@@ -239,7 +241,7 @@ class UiButtonElement extends UiElement {
   #buttonElem;
 
   constructor() {
-    super(x$5, sheet$6);
+    super(x$6, sheet$7);
     this.#iconElem = this.shadowRoot.querySelector('ui-iconlabel');
     this.#buttonElem = this.shadowRoot.querySelector('button');
   }
@@ -271,7 +273,7 @@ class UiButtonElement extends UiElement {
 
 }
 
-const sheet$5 = new CSSStyleSheet();sheet$5.replaceSync(":host([pressed]){background:var(--ui-color-accent);color:var(--ui-color-accent-contrast);}");
+const sheet$6 = new CSSStyleSheet();sheet$6.replaceSync(":host([pressed]){--invert:0}:host(:not([pressed])){--invert:1}");
 
 /**
  *
@@ -282,14 +284,13 @@ class UiToggleButtonElement extends UiButtonElement {
 
   constructor() {
     super();
-    this.shadowRoot.adoptedStyleSheets.push(sheet$5);
+    this.shadowRoot.adoptedStyleSheets.push(sheet$6);
     this.#clickHandler = this.#handleClickEvent.bind(this);
   }
 
 
   /**
-   * Sets or retrieves the pressed state in the button. If the value is an 
-   * empty string, no icon will be displayed.
+   * Sets or retrieves the pressed state of the button.
    * @type {boolean} 
    */
   get pressed() {
@@ -316,26 +317,26 @@ class UiToggleButtonElement extends UiButtonElement {
   }
 }
 
-const x$4 = document.createElement('template');x$4.innerHTML = "<div><slot></slot></div>";
+const x$5 = document.createElement('template');x$5.innerHTML = "<div><slot></slot></div>";
 
-const sheet$4 = new CSSStyleSheet();sheet$4.replaceSync(":host(:not([hidden])){display:block;}div{display:flex;gap:calc(var(--ui-spacing-unit) * 2);justify-content:space-between;align-items:center;flex-wrap:wrap;padding:calc(var(--ui-spacing-unit) * 2);width:100%;box-sizing:border-box;}::slotted(:not(ui-toolbox):not(ui-separator))::before{display:none;}::slotted(ui-separator){display:block;width:1px;height:var(--ui-padding);background:var(--ui-color-separator);align-self:center;margin:auto var(--ui-spacing-unit);}");
+const sheet$5 = new CSSStyleSheet();sheet$5.replaceSync(":host(:not([hidden])){display:block;}div{display:flex;gap:calc(var(--ui-spacing-unit) * 2);justify-content:space-between;align-items:center;flex-wrap:wrap;padding:calc(var(--ui-spacing-unit) * 2);width:100%;box-sizing:border-box;}::slotted(:not(ui-toolbox):not(ui-separator))::before{display:none;}::slotted(ui-separator){display:block;width:1px;height:var(--ui-padding);background:var(--ui-color-separator);align-self:center;// margin:auto var(--ui-spacing-unit);}");
 
 class UiToolbarElement extends UiElement {
 
   constructor() {
-    super(x$4, sheet$4);
+    super(x$5, sheet$5);
   }
 
 }
 
-const x$3 = document.createElement('template');x$3.innerHTML = "<div><slot></slot></div>";
+const x$4 = document.createElement('template');x$4.innerHTML = "<div><slot></slot></div>";
 
-const sheet$3 = new CSSStyleSheet();sheet$3.replaceSync(":host(:not([hidden])){display:inline-flex;}div{display:flex;gap:calc(var(--ui-spacing-unit) * 2);}");
+const sheet$4 = new CSSStyleSheet();sheet$4.replaceSync(":host(:not([hidden])){display:inline-flex;}div{display:flex;gap:calc(var(--ui-spacing-unit) * 2);}::slotted(ui-button){--invert:1;}");
 
 class UiToolboxElement extends UiElement {
 
   constructor() {
-    super(x$3, sheet$3);
+    super(x$4, sheet$4);
   }
 
 }
@@ -344,16 +345,16 @@ class UiSeparatorElement extends UiElement {
 
 }
 
-const x$2 = document.createElement('template');x$2.innerHTML = "<label> <ui-iconlabel></ui-iconlabel> <slot></slot> </label> ";
+const x$3 = document.createElement('template');x$3.innerHTML = "<label> <ui-iconlabel></ui-iconlabel> <slot></slot> </label> ";
 
-const sheet$2 = new CSSStyleSheet();sheet$2.replaceSync(":host(:not([hidden])){display:inline-grid;grid-template-columns:subgrid;grid-column:1 / span 2;gap:calc(var(--ui-spacing-unit) * 2);}label{align-items:center;display:grid;grid-template-columns:inherit;grid-column:inherit;}ui-iconlabel{color:var(--ui-color-base-muted);}");
+const sheet$3 = new CSSStyleSheet();sheet$3.replaceSync(":host(:not([hidden])){display:inline-grid;grid-template-columns:subgrid;grid-column:1 / span 2;gap:calc(var(--ui-spacing-unit) * 2);}label{align-items:center;display:grid;grid-template-columns:inherit;grid-column:inherit;align-items:baseline;}ui-iconlabel{color:var(--ui-color-base-muted);}");
 
 class UiPropertyElement extends UiElement {
 
   #labelElem;
 
   constructor() {
-    super(x$2, sheet$2);
+    super(x$3, sheet$3);
     this.#labelElem = this.shadowRoot.querySelector('ui-iconlabel');
   }
 
@@ -397,16 +398,16 @@ class UiPropertyElement extends UiElement {
 
 }
 
-const x$1 = document.createElement('template');x$1.innerHTML = "<div><slot></slot></div> ";
+const x$2 = document.createElement('template');x$2.innerHTML = "<div><slot></slot></div> ";
 
-const sheet$1 = new CSSStyleSheet();sheet$1.replaceSync(":host(:not([hidden])){display:block;}::slotted(:not(ui-property):not(ui-separator)){display:none;}::slotted(ui-separator){border-top:1px solid var(--ui-color-separator);margin-top:calc(var(--ui-spacing-unit) * 3 - .5px);margin-bottom:calc(var(--ui-spacing-unit) * 3 - .5px);grid-column:1 / span 2;}div{display:grid;grid-template-columns:1fr 1fr;gap:var(--ui-spacing-unit);}");
+const sheet$2 = new CSSStyleSheet();sheet$2.replaceSync(":host(:not([hidden])){display:block;}::slotted(:not(ui-property):not(ui-separator)){display:none;}::slotted(ui-separator){border-top:1px solid var(--ui-color-separator);margin-top:calc(var(--ui-spacing-unit) * 2 - .5px);margin-bottom:calc(var(--ui-spacing-unit) * 2 - .5px);grid-column:1 / span 2;}div{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--ui-spacing-unit) * 2);}");
 
 class UiPropertyListElement extends UiElement {
 
   #labelElem;
 
   constructor() {
-    super(x$1, sheet$1);
+    super(x$2, sheet$2);
     this.#labelElem = this.shadowRoot.querySelector('span');
   }
 
@@ -432,9 +433,9 @@ class UiPropertyListElement extends UiElement {
 
 }
 
-const sheet = new CSSStyleSheet();sheet.replaceSync(":host(:not([hidden])){display:inline-block;}div{display:inline-flex;--show-text:min(var(--ui-text-visibility,1),1);--show-icon:min(var(--ui-icon-visibility,1) * var(--has-icon,1),1);--font-size:calc(var(--show-text) * 1rem );--icon-size:calc(var(--has-icon) * var(--show-icon) * var(--ui-padding));--gap-size:calc(var(--show-text) * var(--show-icon) * var(--ui-spacing-unit));align-items:center;gap:var(--gap-size);white-space:nowrap;vertical-align:bottom;}ui-icon{flex:0 0 var(--icon-size);width:var(--icon-size);}span{display:block;font-size:var(--font-size);white-space:nowrap;text-overflow:ellipsis;overflow:hidden;min-width:0;max-width:100%;}");
+const sheet$1 = new CSSStyleSheet();sheet$1.replaceSync(":host(:not([hidden])){display:inline-block;}div{display:inline-flex;--show-text:min(var(--ui-text-visibility,1),1);--show-icon:min(var(--ui-icon-visibility,1) * var(--has-icon,1),1);--font-size:calc(var(--show-text) * 1rem );--icon-size:calc(var(--has-icon) * var(--show-icon) * var(--ui-padding));--gap-size:calc(var(--show-text) * var(--show-icon) * var(--ui-spacing-unit));align-items:center;gap:var(--gap-size);white-space:nowrap;vertical-align:bottom;}ui-icon{flex:0 0 var(--icon-size);width:var(--icon-size);}span{display:block;font-size:var(--font-size);white-space:nowrap;text-overflow:ellipsis;overflow:hidden;min-width:0;max-width:100%;}");
 
-const x = document.createElement('template');x.innerHTML = "<div> <ui-icon></ui-icon> <span><slot></slot></span> </div> ";
+const x$1 = document.createElement('template');x$1.innerHTML = "<div> <ui-icon></ui-icon> <span><slot></slot></span> </div> ";
 
 /**
  * A component for rendering text alongside an icon
@@ -459,7 +460,7 @@ class UiIconLabelElement extends UiElement {
   #rootElem;
 
   constructor() {
-    super(x, sheet);
+    super(x$1, sheet$1);
     this.#iconElem = this.shadowRoot.querySelector('ui-icon');
     this.#rootElem = this.shadowRoot.querySelector('div');
   }
@@ -497,13 +498,75 @@ class UiIconLabelElement extends UiElement {
   }
 }
 
+const sheet = new CSSStyleSheet();sheet.replaceSync("dialog[open]{border:0;box-shadow:0px 4px 12px 1px #000;background:var(--ui-color-base);color:var(--ui-color-base-contrast);border-radius:calc(var(--ui-radius) * 2);padding:0;min-width:min(30em,calc(100vw - var(--ui-spacing)));max-width:calc(100vw - var(--ui-spacing));padding:var(--ui-padding);box-sizing:border-box;display:flex;flex-direction:column;}dialog > *{gap:calc(var(--ui-spacing-unit) * 2);}.title{display:grid;align-items:center;grid-template-columns:1fr auto;border-bottom:1px solid var(--ui-color-separator);padding-bottom:calc(var(--ui-padding));}.title ui-button{--ui-text-visibility:0;}.actions{border-top:1px solid var(--ui-color-separator);display:flex;justify-content:center;padding-top:calc(var(--ui-padding));}.body{flex-shrink:1;overflow:auto;}::backdrop{background-color:#0008;}");
+
+const x = document.createElement('template');x.innerHTML = "<dialog> <div class=\"title\"> <ui-iconlabel icon=\"openUrl\">Dialog</ui-iconlabel> <!--<ui-button icon=\"close\">Close</ui-button>--> </div> <div class=\"body\"> <slot></slot> </div> <div class=\"actions\"> <slot name=\"actions\"></slot> </div> </dialog> ";
+
+/**
+ * 
+ */
+class UiDialogElement extends UiElement {
+
+  /** @type {UiIconElement} */
+  #iconElem;
+
+  /** @type {HTMLDialogElement} */
+  #dialogElem;
+
+  constructor() {
+    super(x, sheet);
+    this.#iconElem = this.shadowRoot.querySelector('ui-iconlabel');
+    this.#dialogElem = this.shadowRoot.querySelector('dialog');
+  }
+
+  static get observedAttributes() {
+    return ['icon', 'disabled'];
+  }
+
+  /**
+   * Sets or retrieves the icon displayed in the component. If the value is an 
+   * empty string, no icon will be displayed.
+   * @type {string} 
+   */
+  get icon() {
+    return this.#iconElem.icon;
+  }
+
+  set icon(value) {
+    this.#iconElem.setAttribute('icon', value);
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'icon') {
+      this.icon = newValue;
+    }
+  }
+
+  show() {
+    this.#dialogElem.showModal();
+  }
+
+  close() {
+    this.#dialogElem.close();
+  }
+
+}
+
 /**
  * Initializes App Kit. Registers the Web Components and adds the base 
  * stylesheet to the current document.
  */
 const init = () => {
   // Add the global stylesheet to the document
-  document.adoptedStyleSheets.push(sheet$9);
+  document.adoptedStyleSheets.push(sheet$a);
+  /*
+  for (const rule of globalStyles.rules) {
+    if (rule.type === 4) {
+      console.log(rule.media.mediaText = '(prefers-color-scheme: light)')
+      
+    }
+  }
+  */
 
   // Register the custom elements
   customElements.define('ui-icon', UiIconElement);
@@ -516,6 +579,7 @@ const init = () => {
   customElements.define('ui-property', UiPropertyElement);
   customElements.define('ui-propertylist', UiPropertyListElement);
   customElements.define('ui-iconlabel', UiIconLabelElement);
+  customElements.define('ui-modaldialog', UiDialogElement);
 };
 
-export { UiButtonElement, UiIconElement, UiIconLabelElement, UiPropertyElement, UiPropertyListElement, UiSeparatorElement, UiSplitViewElement, UiToggleButtonElement, UiToolbarElement, UiToolboxElement, init };
+export { UiButtonElement, UiIconElement, UiIconLabelElement, UiDialogElement as UiModalDialogElement, UiPropertyElement, UiPropertyListElement, UiSeparatorElement, UiSplitViewElement, UiToggleButtonElement, UiToolbarElement, UiToolboxElement, init };
